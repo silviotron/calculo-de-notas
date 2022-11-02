@@ -25,8 +25,8 @@
                         <td><?php echo $array['media'] ?></td>
                         <td><?php echo $array['aprobados'] ?></td>
                         <td><?php echo $array['suspensos'] ?></td>
-                        <td><?php echo $array['max']['alumno'] ?></td>
-                        <td><?php echo $array['min']['alumno'] ?></td>
+                        <td><?php echo $array['max']['alumno'].": ".$array['max']['nota'] ?></td>
+                        <td><?php echo $array['min']['alumno'].": ".$array['min']['nota'] ?></td>
                     </tr>
                     <?php
                 }
