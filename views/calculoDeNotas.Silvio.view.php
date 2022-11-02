@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Iterativas 08</h1>
+    <h1 class="h3 mb-0 text-gray-800">Calculo de notas</h1>
 
 </div>
 
@@ -41,7 +41,7 @@
     if (isset($data['resultado'])) {
         ?>
         <!-- Alumnos que han aprobado todo. (div verde) -->
-        <div class="col-lg-4 col-12">
+        <div class="col-12 col-lg-6">
             <div class="alert alert-success">
                 <ol>
                     <?php
@@ -55,7 +55,7 @@
             </div>
         </div>
         <!-- Alumnos que han suspendido al menos una asignatura. (div amarillo) -->
-        <div class="col-lg-4 col-12">
+        <div class="col-12 col-lg-6">
             <div class="alert alert-warning">
                 <ol>
                     <?php
@@ -71,7 +71,7 @@
             </div>
         </div>
         <!-- Alumnos que promocionan (alumnos que han suspendido como máximo una asignatura). (div azul) -->
-        <div class="col-lg-4 col-12">
+        <div class="col-12 col-lg-6">
             <div class="alert alert-primary">
                 <ol>
                     <?php
@@ -87,7 +87,7 @@
             </div>
         </div>
         <!-- Alumnos que no promocionan (alumnos que han suspendido 2 o más asignaturas). (div rojo) -->
-        <div class="col-lg-4 col-12">
+        <div class="col-12 col-lg-6">
             <div class="alert alert-danger">
                 <ol>
                     <?php
