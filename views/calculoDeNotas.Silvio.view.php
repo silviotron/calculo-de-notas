@@ -25,8 +25,8 @@
                         <td><?php echo $array['media'] ?></td>
                         <td><?php echo $array['aprobados'] ?></td>
                         <td><?php echo $array['suspensos'] ?></td>
-                        <td><?php echo $array['max']['alumno'].": ".$array['max']['nota'] ?></td>
-                        <td><?php echo $array['min']['alumno'].": ".$array['min']['nota'] ?></td>
+                        <td><?php echo $array['max']['alumno'] . ": " . $array['max']['nota'] ?></td>
+                        <td><?php echo $array['min']['alumno'] . ": " . $array['min']['nota'] ?></td>
                     </tr>
                     <?php
                 }
@@ -122,7 +122,14 @@
                     <div class="mb-3">
                         <label for="texto">Json Notas:</label>
                         <textarea class="form-control" id="json_notas" name="json_notas" rows="10"><?php echo isset($data['input']['json_notas']) ? $data['input']['json_notas'] : ''; ?></textarea>
-                        <p class="text-danger small"><?php echo isset($data['errores']['json_notas']) ? $data['errores']['json_notas'] : ''; ?></p>
+                        <p class="text-danger small">
+                            <?php
+                            if (isset($data['errores']['json_notas'])) {
+                                foreach ($data['errores']['json_notas'] as $error) {
+                                    echo $error . "<br>";
+                                }
+                            }
+                            ?></p>
                     </div>                    
                     <div class="mb-3">
                         <input type="submit" value="Enviar" name="enviar" class="btn btn-primary"/>
