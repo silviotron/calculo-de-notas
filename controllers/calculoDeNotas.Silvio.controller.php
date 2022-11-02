@@ -68,7 +68,7 @@ function datosModulos(array $modulos): array {
                 $alumnos[$alumno] = ['suspensos' => 0, 'aprobados' => 0];
             }
             $contarAlumnos++;
-            $notaAcumulada += calcMedia($nota);
+            $notaAcumulada += $nota;
             if ($nota < 5) {
                 $suspensos++;
                 $alumnos[$alumno]['suspensos']++;
@@ -98,7 +98,7 @@ function datosModulos(array $modulos): array {
     return array('modulo' => $resultado, 'alumnos' => $alumnos);
 }
 
-function calcMedia($valores): int {
+function calcMedia($valores) {
     if (is_array($valores)) {
         $media = array_sum($valores) / count($valores);
     } else {
