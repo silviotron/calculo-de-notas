@@ -87,7 +87,9 @@ function datosModulos(array $modulos): array {
             }
         }
         if ($contarAlumnos > 0) {
-            $resultado[$nombreModulo]['media'] = $notaAcumulada / $contarAlumnos;
+            $max['nota'] = number_format($max['nota']);
+            $min['nota'] = number_format($min['nota']);
+            $resultado[$nombreModulo]['media'] = number_format($notaAcumulada / $contarAlumnos,2);
             $resultado[$nombreModulo]['max'] = $max;
             $resultado[$nombreModulo]['min'] = $min;
         } else {
@@ -105,7 +107,7 @@ function calcMedia($valores) {
     } else {
         $media = $valores;
     }
-    return intval($media);
+    return $media;
 }
 //number_format($numero, 1)
 
