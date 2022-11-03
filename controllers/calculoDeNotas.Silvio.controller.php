@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 if (isset($_POST['enviar'])) {
     $data['input'] = filter_var_array($_POST, FILTER_SANITIZE_SPECIAL_CHARS);
     $data['errores'] = checkNotas($_POST);
@@ -25,14 +26,16 @@ function checkNotas(array $post): array {
                         $errores['json_notas'][] = 'El módulo no puede estar vacio';
                     } else {
                         foreach ($valorModulo as $nombre => $notas) {
-                            if (empty($nombre)) {
+                            if (empty($nombre) || is_array($nombre)) {
                                 $errores['json_notas'][] = "'$modulo' => VACIO. El nombre del alumno no puede estar vacio";
                             }
+                            if (empty($notas)) {
+                                $errores['json_notas'][] = "'$modulo' => '$nombre' => 'VACIO'. El alumno tiene que tener notas";
+                            }
                             foreach ($notas as $nota) {
-                                if ($nota == null) {
-                                    $errores['json_notas'][] = "'$modulo' => '$nombre' => NULL. Las notas deben ser numeros entre cero y diez, inclusive";                                    
-                                }                                
-                                else if (!is_numeric($nota) || $nota < 0 || $nota > 10) {
+                                if ($nota == null || is_array($nota)) {
+                                    $errores['json_notas'][] = "'$modulo' => '$nombre' => NULL. Las notas deben ser numeros entre cero y diez, inclusive";
+                                } else if (!is_numeric($nota) || $nota < 0 || $nota > 10) {
                                     $errores['json_notas'][] = "'$modulo' => '$nombre' => '$nota'. Las notas deben ser numeros entre cero y diez, inclusive";
                                 }
                             }
